@@ -12,7 +12,7 @@ public class TableStorageController : ControllerBase
     TableClient tableClient;
     public TableStorageController()
     {
-        string connectionString = "Tutaj dodaj connection string";
+        string connectionString = "UseDevelopmentStorage=true";
         TableServiceClient tableServiceClient = new(connectionString);
 
         tableClient = tableServiceClient.GetTableClient("employees");
@@ -28,7 +28,7 @@ public class TableStorageController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get([FromQuery]string rowKey, [FromQuery]string partitionKey)
+    public async Task<IActionResult> Get([FromQuery]string partitionKey, [FromQuery] string rowKey)
     {
         Response<Employee>? employee = await tableClient.GetEntityAsync<Employee>(partitionKey, rowKey);
 

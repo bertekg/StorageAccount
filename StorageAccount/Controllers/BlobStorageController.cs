@@ -12,7 +12,7 @@ public class BlobStorageController : ControllerBase
     [HttpPost("upload")]
     public async Task<IActionResult> Upload(IFormFile file)
     {
-        var connectionString = "Tutaj Connction String";
+        string connectionString = "UseDevelopmentStorage=true";
         BlobServiceClient blobServiceClient = new(connectionString);
 
         var containerName = "documents";
@@ -23,9 +23,6 @@ public class BlobStorageController : ControllerBase
 
         BlobClient blobClient = blobContainerClient.GetBlobClient(file.FileName);
 
-        //await blobClient.UploadAsync(file.OpenReadStream()); // bez nadpisywania
-        //await blobClient.UploadAsync(file.OpenReadStream(), overwrite: true); // z nadpisywaniem
-
         BlobHttpHeaders blobHttpHeaders = new();
         blobHttpHeaders.ContentType = file.ContentType;
         await blobClient.UploadAsync(file.OpenReadStream(), blobHttpHeaders);
@@ -35,7 +32,7 @@ public class BlobStorageController : ControllerBase
     [HttpGet("download")]
     public async Task<IActionResult> Download([FromQuery]string blobName)
     {
-        var connectionString = "Tutaj Connction String";
+        string connectionString = "UseDevelopmentStorage=true";
         BlobServiceClient blobServiceClient = new(connectionString);
 
         var containerName = "documents";

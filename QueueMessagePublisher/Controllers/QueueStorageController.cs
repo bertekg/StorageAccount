@@ -12,7 +12,7 @@ public class QueueStorageController : ControllerBase
     [HttpPost("publish")]
     public async Task<IActionResult> Publishi(ReturnDto returnDto)
     {
-        string connectionString = "Tutaj skopiować connection string";
+        string connectionString = "UseDevelopmentStorage=true";
         string queueName = "returns";
 
         QueueClient queueClient = new(connectionString, queueName);

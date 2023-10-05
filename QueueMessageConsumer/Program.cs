@@ -1,7 +1,7 @@
 ﻿using Azure.Storage.Queues;
 using QueueMessagePublisher.Models;
 
-string connectionString = "Tutaj skopiować connection string";
+string connectionString = "UseDevelopmentStorage=true";
 string queueName = "returns";
 
 QueueClient queueClient = new(connectionString, queueName);

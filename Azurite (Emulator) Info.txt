@@ -1,0 +1,8 @@
+Moja ścieżka:
+C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator
+
+Komenda w PowerShall uruchomiony jako Admin:
+cd "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator"
+
+Uruchomienie programu bez sprawdzania wersji:
+.\azurite.exe --skipApiVersionCheck
